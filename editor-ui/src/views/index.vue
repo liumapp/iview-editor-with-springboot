@@ -9,6 +9,11 @@
 <div>
   <Row>
     <Col span="18" offset="3">
+      <Form ref="" :model="" :rules="">
+        <FormItem>
+
+        </FormItem>
+      </Form>
       <Card shadow>
         <textarea class='tinymce-textarea' id="tinymceEditer"></textarea>
       </Card>
@@ -26,7 +31,10 @@ export default {
   name: 'index',
   data () {
     return {
-      spinShow: true
+      spinShow: true,
+      editorModel: {
+        
+      }
     };
   },
   methods: {
