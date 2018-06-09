@@ -21,7 +21,7 @@
 </div>
 </template>
 <script>
-import tinymce from '@/components/tinymce';
+import tinymce from 'tinymce';
 export default {
   name: 'index',
   data () {
