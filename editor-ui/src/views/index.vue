@@ -33,7 +33,7 @@ export default {
     return {
       spinShow: true,
       editorModel: {
-        
+
       }
     };
   },
