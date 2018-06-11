@@ -10,7 +10,7 @@
   <Row>
     <Col span="18" offset="3">
       <Form ref="editorModel" :model="editorModel" :rules="editorRules">
-        <FormItem>
+        <FormItem label="">
 
         </FormItem>
       </Form>
