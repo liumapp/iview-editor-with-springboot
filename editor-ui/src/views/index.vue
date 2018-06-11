@@ -9,7 +9,7 @@
 <div>
   <Row>
     <Col span="18" offset="3">
-      <Form ref="" :model="" :rules="">
+      <Form ref="editorModel" :model="editorModel" :rules="editorRules">
         <FormItem>
 
         </FormItem>
@@ -33,7 +33,17 @@ export default {
     return {
       spinShow: true,
       editorModel: {
-
+        content: ''
+      },
+      editorRules: {
+        content: [
+          {
+            type: 'string',
+            min: 5,
+            message: 'the username size shall be no less than 5 chars ',
+            trigger: 'blur'
+          }
+        ]
       }
     };
   },
