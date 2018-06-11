@@ -38,7 +38,7 @@ export default {
     return {
       spinShow: true,
       editorModel: {
-        content: ''
+        content: 'dfsd'
       },
       editorRules: {
         content: [
@@ -86,6 +86,7 @@ export default {
             });
             editor.on('keydown', function (e) {
               localStorage.editorContent = tinymce.get('tinymceEditer').getContent();
+              vm.editorModel.content = tinymce.get('tinymceEditer').getContent();
             });
           }
         });
