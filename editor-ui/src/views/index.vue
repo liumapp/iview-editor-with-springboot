@@ -14,11 +14,11 @@
           <FormItem prop="content">
             <textarea class='tinymce-textarea' id="tinymceEditer"></textarea>
           </FormItem>
+          <FormItem>
+            <Button type="primary" @click="handleSubmit('editorModel')">Submit</Button>
+            <Button type="ghost" @click="handleReset('editorModel')">Reset</Button>
+          </FormItem>
         </Form>
-        <FormItem>
-          <Button type="primary" @click="handleSubmit('checkMsgForm')">Submit</Button>
-          <Button type="ghost" @click="handleReset('checkMsgForm')">Reset</Button>
-        </FormItem>
         <Spin fix v-if="spinShow">
           <Icon type="load-c" size=18 class="demo-spin-icon-load"></Icon>
           <div>加载组件中...</div>
@@ -31,6 +31,7 @@
 </template>
 <script>
 import tinymce from 'tinymce';
+import util from '@/libs/util';
 export default {
   name: 'index',
   data () {
@@ -93,10 +94,8 @@ export default {
     handleSubmit (name) {
       this.$refs[name].validate((valid) => {
         if (valid) {
-          util.post('/info', this.checkMsgForm).then(res => {
+          util.post('/', this.editorModel).then(res => {
             this.$Message.success('Success!');
-            this.$emit('setFormData', this.checkMsgForm);
-            this.$emit('next');
           });
         } else {
           this.$Message.error('Fail!');

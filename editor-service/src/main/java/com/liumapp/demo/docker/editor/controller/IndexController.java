@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 6/11/18
  */
 @RestController
-@RequestMapping("")
+@RequestMapping("/")
 public class IndexController {
 
     @RequestMapping("")
