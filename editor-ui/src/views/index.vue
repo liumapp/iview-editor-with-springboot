@@ -9,18 +9,22 @@
 <div>
   <Row>
     <Col span="18" offset="3">
-      <Form ref="editorModel" :model="editorModel" :rules="editorRules">
-        <FormItem label="">
-
-        </FormItem>
-      </Form>
       <Card shadow>
-        <textarea class='tinymce-textarea' id="tinymceEditer"></textarea>
+        <Form ref="editorModel" :model="editorModel" :rules="editorRules">
+          <FormItem prop="content">
+            <textarea class='tinymce-textarea' id="tinymceEditer"></textarea>
+          </FormItem>
+        </Form>
+        <FormItem>
+          <Button type="primary" @click="handleSubmit('checkMsgForm')">Submit</Button>
+          <Button type="ghost" @click="handleReset('checkMsgForm')">Reset</Button>
+        </FormItem>
+        <Spin fix v-if="spinShow">
+          <Icon type="load-c" size=18 class="demo-spin-icon-load"></Icon>
+          <div>加载组件中...</div>
+        </Spin>
       </Card>
-      <Spin fix v-if="spinShow">
-        <Icon type="load-c" size=18 class="demo-spin-icon-load"></Icon>
-        <div>加载组件中...</div>
-      </Spin>
+
     </Col>
   </Row>
 </div>
@@ -85,7 +89,23 @@ export default {
           }
         });
       });
-    }
+    },
+    handleSubmit (name) {
+      this.$refs[name].validate((valid) => {
+        if (valid) {
+          util.post('/info', this.checkMsgForm).then(res => {
+            this.$Message.success('Success!');
+            this.$emit('setFormData', this.checkMsgForm);
+            this.$emit('next');
+          });
+        } else {
+          this.$Message.error('Fail!');
+        }
+      });
+    },
+    handleReset (name) {
+      this.$refs[name].resetFields();
+    },
   },
   mounted () {
     this.init();
