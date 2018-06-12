@@ -42,9 +42,16 @@
     <dependency>
       <groupId>com.liumapp.convert.html</groupId>
       <artifactId>convert-html-to-pdf</artifactId>
-      <version>v1.0.0</version>
+      <version>v1.0.5</version>
     </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>test</id>
+      <url>http://127.0.0.1:8081/repository/liumapp/</url>
+    </repository>
+  </repositories>
 
   <build>
     <plugins>
