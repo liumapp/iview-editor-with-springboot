@@ -49,7 +49,7 @@
   <repositories>
     <repository>
       <id>test</id>
-      <url>http://127.0.0.1:8081/repository/liumapp/</url>
+      <url>http://www.liumapp.com:8081/repository/liumapp/</url>
     </repository>
   </repositories>
 
